@@ -1,0 +1,30 @@
+<div *ngIf="isViewingList">
+    <div class="row">
+        <div class="col">
+            <h2 class="pb-3">List of PN Events</h2>
+        </div>
+        <div class="col">
+            <app-add-event></app-add-event>            
+        </div>
+    </div>
+    
+    <div *ngFor="let event of events">
+        <app-event-details 
+        [event]="event"
+        (id)="sendId($event)"
+        ></app-event-details>
+    </div>
+</div>
+
+<div *ngIf="!isViewingList">
+    <h2 class="pb-3" style="text-align: center; ">{{event.name}}</h2>
+    <app-participants-list 
+        [participants]="event.participants"
+        (backButton)="returnToListView()"
+        (addParticipant)="addNewParticipant($event)"
+    ></app-participants-list>
+</div>
+
+  
+  
+  

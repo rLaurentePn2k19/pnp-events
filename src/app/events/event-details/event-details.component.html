@@ -1,0 +1,25 @@
+<div class="jumbotron">
+  <h2>Event Title: {{event?.name}}</h2>
+  <div class="col body-content">
+    <div class="row">
+        <span><b>Category: </b>{{event?.category}}</span>
+      </div>
+     <div class="row" *ngIf="event.speaker">
+      <span><b>Speaker: </b>{{event?.speaker}}</span>
+      </div>
+      <div class="row" *ngIf="event.emcee">
+        <span><b>Emcee: </b>{{event?.emcee}}</span>
+      </div>
+      <div class="row">
+        <span><b>Time: </b>{{event?.time}}</span>  
+      </div>
+      <div class="row">
+        <span><b>Date: </b>{{event?.date}}</span>  
+      </div>
+      <div class="row">
+        <span><b>Description: </b>{{event?.description}}</span>  
+      </div>
+
+    <button class="btn btn-primary mt-5" type="submit" (click)="sendId(event.id)">View Details</button>
+  </div>
+</div>
