@@ -7,6 +7,7 @@ import { EventsListComponent } from './events/events-list.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { ParticipantsListComponent } from './participants/participants-list/participants-list.component';
 import { AddEventComponent } from './events/add-event/add-event.component';
+import { EventService } from './event.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { AddEventComponent } from './events/add-event/add-event.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    EventService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

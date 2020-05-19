@@ -13,7 +13,7 @@
   
         <!-- Modal body -->
         <div class="modal-body">
-          <form [formGroup]="eventForm" autocomplete="off" novalidate>
+          <form [formGroup]="eventForm" (ngSubmit)="addEvent(eventForm.value)" autocomplete="off" novalidate>
             <div class="form-group">
               <label for="name">Event Name</label>
               <input formControlName="name" type="text" class="form-control" placeholder="Event Name">
@@ -26,6 +26,45 @@
               <label for="speaker">Speaker</label>
               <input formControlName="speaker" type="text" class="form-control" placeholder="Speaker">
             </div>
+            <div class="form-group">
+              <label for="emcee">Emcee</label>
+              <input formControlName="emcee" type="text" class="form-control" placeholder="Emcee">
+            </div>
+            <div class="form-group">
+              <label for="time">Time</label>
+              <input formControlName="time" type="text" class="form-control" placeholder="time">
+            </div>
+            <div class="form-group">
+              <label for="date">date</label>
+              <input formControlName="date" type="text" class="form-control" placeholder="date">
+            </div>
+            <div class="form-group">
+              <label for="duration">duration  </label>
+              <input formControlName="duration" type="text" class="form-control" placeholder="duration">
+            </div>
+            <div formGroupName="venue">
+              <div class="form-group">
+                <label for="address">address</label>
+                <input formControlName="address" type="text" class="form-control" placeholder="address">
+              </div>
+              <div class="form-group">
+                <label for="building">building</label>
+                <input formControlName="building" type="text" class="form-control" placeholder="building">
+              </div>
+              <div class="form-group">
+                <label for="room">room</label>
+                <input formControlName="room" type="text" class="form-control" placeholder="room">
+              </div>      
+            </div>
+            <div class="form-group">
+              <label for="onlineUrl">onlineUrl</label>
+              <input formControlName="onlineUrl" type="text" class="form-control" placeholder="onlineUrl">
+            </div>
+            <div class="form-group">
+              <label for="description">description</label>
+              <input formControlName="description" type="text" class="form-control" placeholder="description">
+            </div>
+
             <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#myModal">Submit</button>
           </form>
         </div>

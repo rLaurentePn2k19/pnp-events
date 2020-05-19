@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h2>Event Title: {{event?.name}}</h2>
+  <h2>{{event?.name}}</h2>
   <div class="col body-content">
     <div class="row">
         <span><b>Category: </b>{{event?.category}}</span>
@@ -20,6 +20,6 @@
         <span><b>Description: </b>{{event?.description}}</span>  
       </div>
 
-    <button class="btn btn-primary mt-5" type="submit" (click)="sendId(event.id)">View Details</button>
+    <button class="btn btn-primary mt-5" type="submit" (click)="sendId(event.id)">View Participants</button>
   </div>
 </div>

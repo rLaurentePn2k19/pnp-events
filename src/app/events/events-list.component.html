@@ -4,7 +4,9 @@
             <h2 class="pb-3">List of PN Events</h2>
         </div>
         <div class="col">
-            <app-add-event></app-add-event>            
+            <app-add-event
+                (event)="addEvent($event)"
+            ></app-add-event>            
         </div>
     </div>
     
