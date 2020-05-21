@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Event, Participant } from '../data-models';
 import { EventService } from '../event.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-events-list',
@@ -8,21 +9,34 @@ import { EventService } from '../event.service';
     styles: ['.body-content { font-size: 25px; }']
 })
 
-export class EventsListComponent implements OnInit {
+export class EventsListComponent implements OnInit, OnDestroy {
     // events: Event[] = EVENTS;
     events: Event[];
     event: Event;
-    isViewingList = true    ;
+    isViewingList = true;
+    getEventsSubscription: Subscription;
 
     constructor(private eventService: EventService) { }
 
     ngOnInit() {
-      this.events = this.eventService.getEvents();
+      // this.events = this.eventService.getEvents();
+      this.getEventsSubscription =  this.eventService.getEvents().subscribe(events => {
+        this.events = events;
+      });
+    }
+
+    ngOnDestroy() {
+      this.getEventsSubscription.unsubscribe();
     }
 
     sendId(data: number) {
-      this.event = this.eventService.sendId(data);
-      this.isViewingList = false;
+      this.events.map(event => {
+        if (event.id === data) {
+          this.event = event;
+          this.isViewingList = false;
+        }
+      });
+      // this.event = this.eventService.sendId(data);
     }
 
     returnToListView() {

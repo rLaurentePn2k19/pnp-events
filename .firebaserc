@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pnp-events-cccd9": {
+      "hosting": {
+        "pnp-events": [
+          "pnp-events-cccd9"
+        ]
+      }
+    }
+  }
+}
