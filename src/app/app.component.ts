@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Passerelles numeriques Phils Events';
+  title = 'PNP Events of A.Y. 2019-2020';
 }
