@@ -1,25 +1,35 @@
-<div class="jumbotron">
-  <h2>{{event?.name}}</h2>
-  <div class="col body-content">
-    <div class="row">
-        <span><b>Category: </b>{{event?.category}}</span>
-      </div>
-     <div class="row" *ngIf="event.speaker">
-      <span><b>Speaker: </b>{{event?.speaker}}</span>
-      </div>
-      <div class="row" *ngIf="event.emcee">
-        <span><b>Emcee: </b>{{event?.emcee}}</span>
-      </div>
-      <div class="row">
-        <span><b>Time: </b>{{event?.time}}</span>  
-      </div>
-      <div class="row">
-        <span><b>Date: </b>{{event?.date}}</span>  
-      </div>
-      <div class="row">
-        <span><b>Description: </b>{{event?.description}}</span>  
-      </div>
+<div class="jumbotron" style="width: 450px;">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Event name: {{event?.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <br>
+    <div class="col body-content">
+      <mat-card-content>
+        <div>
+          <span><b>Category: </b>{{event?.category}}</span>
+        </div>
+        <div *ngIf="event.speaker">
+          <span><b>Speaker: </b>{{event?.speaker}}</span>
+        </div>
+        <div *ngIf="event.emcee">
+          <span><b>Emcee: </b>{{event?.emcee}}</span>
+        </div>
+        <div>
+          <span><b>Time: </b>{{event?.time}}</span>
+        </div>
+        <div>
+          <span><b>Date: </b>{{event?.date}}</span>
+        </div>
+        <div>
+          <span><b>Description: </b>{{event?.description}}</span>
+        </div>
+       
+      </mat-card-content>
+      <mat-divider></mat-divider>
+    </div>
+    <button mat-button class="btn btn-primary mt-2" type="submit" (click)="sendId(event.id)">View Paricipants</button>
+  </mat-card>
+</div> 
 
-    <button class="btn btn-primary mt-5" type="submit" (click)="sendId(event.id)">View Participants</button>
-  </div>
-</div>

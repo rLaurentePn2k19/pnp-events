@@ -1,79 +1,122 @@
-<button class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#myModal">Add Event</button>
+<!-- <button class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#myModal">Add Event</button> -->
+<button mat-button data-toggle="modal" data-target="#myModal">
+  <mat-icon>queue</mat-icon>
+  Add Event
+</button>
 
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-  
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Add Participant</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-  
-        <!-- Modal body -->
-        <div class="modal-body">
-          <form [formGroup]="eventForm" (ngSubmit)="addEvent(eventForm.value)" autocomplete="off" novalidate>
-            <div class="form-group">
-              <label for="name">Event Name</label>
-              <input formControlName="name" type="text" class="form-control" placeholder="Event Name">
-            </div>
-            <div class="form-group">
-              <label for="category">Category</label>
-              <input formControlName="category" type="text" class="form-control" placeholder="Category">
-            </div>
-            <div class="form-group">
-              <label for="speaker">Speaker</label>
-              <input formControlName="speaker" type="text" class="form-control" placeholder="Speaker">
-            </div>
-            <div class="form-group">
-              <label for="emcee">Emcee</label>
-              <input formControlName="emcee" type="text" class="form-control" placeholder="Emcee">
-            </div>
-            <div class="form-group">
-              <label for="time">Time</label>
-              <input formControlName="time" type="text" class="form-control" placeholder="time">
-            </div>
-            <div class="form-group">
-              <label for="date">date</label>
-              <input formControlName="date" type="text" class="form-control" placeholder="date">
-            </div>
-            <div class="form-group">
-              <label for="duration">duration  </label>
-              <input formControlName="duration" type="text" class="form-control" placeholder="duration">
-            </div>
-            <div formGroupName="venue">
-              <div class="form-group">
-                <label for="address">address</label>
-                <input formControlName="address" type="text" class="form-control" placeholder="address">
-              </div>
-              <div class="form-group">
-                <label for="building">building</label>
-                <input formControlName="building" type="text" class="form-control" placeholder="building">
-              </div>
-              <div class="form-group">
-                <label for="room">room</label>
-                <input formControlName="room" type="text" class="form-control" placeholder="room">
-              </div>      
-            </div>
-            <div class="form-group">
-              <label for="onlineUrl">onlineUrl</label>
-              <input formControlName="onlineUrl" type="text" class="form-control" placeholder="onlineUrl">
-            </div>
-            <div class="form-group">
-              <label for="description">description</label>
-              <input formControlName="description" type="text" class="form-control" placeholder="description">
-            </div>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-            <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#myModal">Submit</button>
-          </form>
-        </div>
-  
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-  
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title" style="color: darkblue">Create Event</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" style="font-size: 14px; color: black">
+        <form [formGroup]="eventForm" (ngSubmit)="addEvent(eventForm.value)" autocomplete="off" >
+          <!------------------->
+          <mat-form-field appearance="outline">
+            <mat-label>Event name</mat-label>
+            <input formControlName="name" matInput placeholder="e.g Fashion Show 2k20">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          </mat-form-field>
+          &nbsp;
+          <!------------------->
+          <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <input formControlName="category" matInput placeholder="e.g Entertainment">
+            <mat-icon matSuffix> bar_chart</mat-icon>
+          </mat-form-field>
+          <br>
+          <!------------------->
+          <mat-form-field appearance="outline">
+            <mat-label>Event Speaker</mat-label>
+            <input formControlName="speaker" matInput placeholder="e.g Rangie Laurente">
+            <mat-icon matSuffix>accessibility_new</mat-icon>
+          </mat-form-field>
+          &nbsp;
+          <!------------------->
+          <mat-form-field appearance="outline">
+            <mat-label>Event Emcee</mat-label>
+            <input formControlName="emcee" matInput placeholder="e.g John Doe">
+            <mat-icon matSuffix>mic_none</mat-icon>
+          </mat-form-field>
+          <br>
+          <!------------------->
+          <mat-form-field appearance="outline">
+            <mat-label>Time</mat-label>
+            <input formControlName="time" matInput type="time" placeholder="Input time event">
+            <mat-icon matSuffix>access_time</mat-icon>
+          </mat-form-field>
+          &nbsp;
+          <!------------------->
+          <mat-form-field appearance="outline">
+            <mat-label>Date</mat-label>
+            <input formControlName="date" matInput type="date" placeholder="Input event date">
+            <mat-icon matSuffix>date_range</mat-icon>
+          </mat-form-field>
+          <br>
+          <!------------------->
+          <mat-form-field appearance="outline">
+            <mat-label>Duration</mat-label>
+            <input formControlName="duration" matInput type="time" placeholder="Input event duration">
+            <mat-icon matSuffix>access_time</mat-icon>
+          </mat-form-field>
+          <!------------------->
+          &nbsp;
+          <mat-form-field appearance="outline">
+            <mat-label>Event URL</mat-label>
+            <input formControlName="onlineUrl" matInput type="url" placeholder="Event URL">
+            <mat-icon matSuffix>video_label</mat-icon>
+          </mat-form-field>
+          <br>
+          <!------------------->
+          <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" matInput type="text" placeholder="Event Description"></textarea>
+            <mat-icon matSuffix>speaker_notes</mat-icon>
+          </mat-form-field>
+          <!------------------->
+          <mat-divider></mat-divider>
+          <br>
+          <h5 style="color: darkblue">Event Address</h5>
+          <br>
+          <!------------------->
+          <div formGroupName="venue">
+            <mat-form-field appearance="outline">
+              <mat-label>Event Venue</mat-label>
+              <input formControlName="address" matInput type="text" placeholder="e.g Nasipit, Talamban, Cebu City">
+              <mat-icon matSuffix> location_on</mat-icon>
+            </mat-form-field>
+            &nbsp;
+            <!------------------->
+            <mat-form-field appearance="outline">
+              <mat-label>Building</mat-label>
+              <input formControlName="building" matInput type="text" placeholder="e.g Carmelites Stage">
+              <mat-icon matSuffix> location_on</mat-icon>
+            </mat-form-field>
+            <br>
+            <!------------------->
+            <mat-form-field appearance="outline">
+              <mat-label>Event Room</mat-label>
+              <input formControlName="room" matInput type="text" placeholder="e.g Basketball Court">
+              <mat-icon matSuffix> location_on</mat-icon>
+            </mat-form-field>
+          </div>
+          <mat-divider></mat-divider>
+          <br>
+          <div style="float: right">
+            <button class="btn btn-primary" type="submit" [disabled]="!eventForm.valid" data-toggle="modal" data-target="#myModal">Submit</button>
+            &nbsp;
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+
+        </form>
       </div>
     </div>
   </div>
+</div>

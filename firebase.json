@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist\\pnp-events",
+    "public": "dist/pnp-events",
     "ignore": [
       "firebase.json",
       "**/.*",

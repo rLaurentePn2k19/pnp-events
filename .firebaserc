@@ -1,14 +1,14 @@
 {
   "targets": {
-    "pnp-events-cccd9": {
+    "pnp-events-e9ff5": {
       "hosting": {
         "pnp-events": [
-          "pnp-events-cccd9"
+          "pnp-events-e9ff5"
         ]
       }
     }
   },
   "projects": {
-    "default": "pnp-events-cccd9"
+    "default": "pnp-events-e9ff5"
   }
 }

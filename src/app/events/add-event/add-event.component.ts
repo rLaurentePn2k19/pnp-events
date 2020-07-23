@@ -2,6 +2,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Event } from 'src/app/data-models';
 
+
+interface Category {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-add-event',
   templateUrl: './add-event.component.html',
@@ -10,6 +16,20 @@ import { Event } from 'src/app/data-models';
 export class AddEventComponent implements OnInit {
   eventForm: FormGroup;
   @Output() event = new EventEmitter<Event>();
+
+
+  selectedCategory: string;
+
+  categories: Category[] = [
+    { value: 'Comedy', viewValue: 'Entertainment' },
+    { value: 'Fashion Show', viewValue: 'Fashion Show' },
+    { value: 'Padient', viewValue: 'Padient' },
+    { value: 'Musical Theatre', viewValue: 'Musical Theatre' },
+    { value: 'Speech Choir', viewValue: 'Speech Choir' },
+    { value: 'Drama', viewValue: 'Drama' },
+    { value: 'Talent Show', viewValue: 'Talent Show' },
+  ];
+
 
   constructor() { }
 
@@ -36,5 +56,7 @@ export class AddEventComponent implements OnInit {
   addEvent(eventForm: Event) {
     this.event.emit(eventForm);
   }
+
+
 
 }

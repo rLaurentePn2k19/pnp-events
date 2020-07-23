@@ -22,3 +22,8 @@ export interface Participant {
     position: string;
     company: string;
 }
+
+export interface Account {
+    username: any;
+    password: any;
+}

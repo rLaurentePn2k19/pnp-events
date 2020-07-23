@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button> -->
+    <span>PNP Events</span>
+    <span class="example-spacer"></span>
+    <app-add-event (event)="addEvent($event)"></app-add-event>
+    <button mat-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+    </button>
+</mat-toolbar>

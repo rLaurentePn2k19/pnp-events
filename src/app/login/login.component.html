@@ -1,0 +1,21 @@
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+    <mat-card class="example-card" style="max-width: 260px; margin-left: 40%; margin-top: 10%; ">
+        <div class="text-center">
+            <mat-card-title>Login</mat-card-title>
+        </div>
+        <br>
+        <mat-card-content>
+            <mat-form-field appearance="outline" class="form-group">
+                <mat-label>Username</mat-label>
+                <input [ngModel]="username" name="username" matInput placeholder="e.g John Doe">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="form-group">
+                <mat-label>Password</mat-label>
+                <input [ngModel]="password" name="password" matInput type="password" placeholder="e.g John Doe">
+                <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+        </mat-card-content>
+        <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="myModal">Login</button>
+    </mat-card>
+</form>

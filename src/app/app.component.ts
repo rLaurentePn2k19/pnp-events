@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PNP Events of A.Y. 2019-2020';
+
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+
+  }
 }

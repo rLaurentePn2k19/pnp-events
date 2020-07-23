@@ -4,58 +4,70 @@ import { EventService } from '../event.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-events-list',
-    templateUrl: './events-list.component.html',
-    styles: ['.body-content { font-size: 25px; }']
+  selector: 'app-events-list',
+  templateUrl: './events-list.component.html',
+  styles: ['./events-list.component.css']
 })
 
 export class EventsListComponent implements OnInit, OnDestroy {
-    // events: Event[] = EVENTS;
-    events: Event[];
-    event: Event;
-    isViewingList = true;
-    getEventsSubscription: Subscription;
+  // events: Event[] = EVENTS;
+  events: Event[];
+  event: Event;
+  isViewingList = true;
+  getEventsSubscription: Subscription;
 
-    constructor(private eventService: EventService) { }
+  displayedColumns: string[] = ['ID', 'Event name', 'Action'];
 
-    ngOnInit() {
-      // this.events = this.eventService.getEvents();
-      this.getEventsSubscription =  this.eventService.getEvents().subscribe(events => {
-        this.events = events;
-      });
-    }
+  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  constructor(private eventService: EventService) { }
 
-    ngOnDestroy() {
-      this.getEventsSubscription.unsubscribe();
-    }
+  ngOnInit() {
+    // this.events = this.eventService.getEvents();
+    this.getEventsSubscription = this.eventService.getEvents().subscribe(events => {
+      this.events = events;
+      console.log(this.events, " events");
+    });
+    this.eventService.currentUserAccount.subscribe(currentUser => {
+      console.log(currentUser, " current User")
+    })
+  }
 
-    sendId(data: number) {
-      this.events.map(event => {
-        if (event.id === data) {
-          this.event = event;
-          this.isViewingList = false;
-        }
-      });
-      // this.event = this.eventService.sendId(data);
-    }
+  ngOnDestroy() {
+    this.getEventsSubscription.unsubscribe();
+  }
 
-    returnToListView() {
-      this.isViewingList = true;
-    }
+  sendId(data: number) {
+    this.events.map(event => {
+      if (event.id === data) {
+        this.event = event;
+        this.isViewingList = false;
+      }
+    });
+    // this.event = this.eventService.sendId(data);
+  }
 
-    addNewParticipant(participant: Participant) {
-      this.events.map(event => {
-        if (event.id === this.event.id) {
-          event.participants.push(participant);
-          this.eventService.updateEvent(event);
-        }
-      });
-    }
+  returnToListView() {
+    this.isViewingList = true;
+  }
 
-    addEvent(event: Event) {
-      this.eventService.addEvent(event);
-      // event.id = this.events.length;
-      // this.events.push(event);
-    }
+  addNewParticipant(participant: Participant) {
+    this.events.map(event => {
+      if (event.id === this.event.id) {
+        event.participants.push(participant);
+        this.eventService.updateEvent(event);
+      }
+    });
+  }
+
+  addEvent(event: Event) {
+    this.eventService.addEvent(event);
+    // event.id = this.events.length;
+    // this.events.push(event);
+  }
+
+  ViewEvent(event: Event){
+    console.log(event, " event");
+    
+  }
 }
 

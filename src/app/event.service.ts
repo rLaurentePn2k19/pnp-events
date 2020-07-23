@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Event, Participant } from './data-models';
+import { Event, Account } from './data-models';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
   AngularFirestoreDocument
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -15,6 +15,9 @@ export class EventService {
   private eventsCollection: AngularFirestoreCollection<Event>;
   private eventDoc: AngularFirestoreDocument<Event>;
   events: Observable<Event[]>;
+
+  public userAccount = new BehaviorSubject<Account>({ username: '', password: '' });
+  currentUserAccount = this.userAccount.asObservable();
 
   constructor(private afs: AngularFirestore) {
     this.eventsCollection = afs.collection<Event>('events', ref => ref.orderBy('id', 'asc'));
@@ -28,7 +31,7 @@ export class EventService {
   }
 
   getEvents() {
-      return this.events;
+    return this.events;
   }
 
   addEvent(event: Event) {
@@ -48,5 +51,10 @@ export class EventService {
         });
       });
   }
+
+  updateCurrentUser(userAccount: Account) {
+    this.userAccount.next(userAccount);
+  }
+
 }
 
