@@ -13,7 +13,7 @@ export class ParticipantsListComponent implements OnInit {
 
 
   @Input() participants: any;
-  @Output() backButton = new EventEmitter();
+  // @Output() backButton = new EventEmitter();
   @Output() addParticipant = new EventEmitter();
 
 
@@ -22,9 +22,9 @@ export class ParticipantsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  returnToList() {
-    this.backButton.emit();
-  }
+  // returnToList() {
+  //   this.backButton.emit();
+  // }
 
   register(data) {
     console.log(data);

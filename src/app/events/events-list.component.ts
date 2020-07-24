@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Event, Participant } from '../data-models';
 import { EventService } from '../event.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-events-list',
@@ -19,7 +22,7 @@ export class EventsListComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['ID', 'Event name', 'Action'];
 
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private router: Router) { }
 
   ngOnInit() {
     // this.events = this.eventService.getEvents();
@@ -67,7 +70,7 @@ export class EventsListComponent implements OnInit, OnDestroy {
 
   ViewEvent(event: Event){
     console.log(event, " event");
-    
+    this.router.navigate(['/event', event.id])
   }
 }
 

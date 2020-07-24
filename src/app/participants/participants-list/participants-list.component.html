@@ -1,26 +1,21 @@
-<mat-card class="example-card">
-  <br>
-  <mat-card-content>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Full Name</th>
-          <th>Position</th>
-          <th>Company</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let participant of participants">
-        <tr>
-          <td>{{participant.fullName}}</td>
-          <td>{{participant.position}}</td>
-          <td>{{participant.company}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <button class="btn btn-primary" type="submit" (click)="returnToList()">View List</button>
-    <button class="btn btn-primary ml-3" data-toggle="modal" data-target="#myModal1">Add Participant</button>
-  </mat-card-content>
-</mat-card>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Position</th>
+      <th>Company</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let participant of participants">
+    <tr>
+      <td>{{participant.fullName}}</td>
+      <td>{{participant.position}}</td>
+      <td>{{participant.company}}</td>
+    </tr>
+  </tbody>
+</table>
+<!-- <button class="btn btn-primary" type="submit" (click)="returnToList()">View List</button> -->
+<button mat-mini-fab data-toggle="modal" style="float: right" data-target="#myModal1"><mat-icon>person_add</mat-icon></button>
 
 
 <!-- The Modal -->

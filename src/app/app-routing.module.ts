@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from '../app/login/login.component'
 import { EventsListComponent } from '../app/events/events-list.component'
 import { EventRouteActivator } from './events/event-route-activator.service';
+import { EventDetailsComponent } from '../app/events/event-details/event-details.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,9 @@ const routes: Routes = [
     },
     {
         path: 'login', component: LoginComponent
+    },
+    {
+        path: 'event/:id', component: EventDetailsComponent
     },
     {
         // path: 'events', component: EventsListComponent, canActivate: [EventRouteActivator]

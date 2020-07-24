@@ -29,6 +29,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
 import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {MatListModule} from '@angular/material/list';
     MatInputModule,
     MatTableModule,
     MatListModule,
+    MatExpansionModule,
     MatSliderModule,
     MatDividerModule,
     MatSelectModule,
